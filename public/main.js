@@ -22,7 +22,7 @@ console.log(`Quotient: ${quotient}`)
 console.log(`Remainder: ${remainder}`)
 
 const numbers = [
-  58,
+  2,
   45,
   74,
   43,
@@ -86,7 +86,7 @@ const numbers = [
   58,
   57,
   20,
-  1,
+  4,
   92,
   91,
   49,
@@ -106,7 +106,7 @@ const numbers = [
   91,
   19,
   44,
-  61,
+  57,
   65,
   92,
   44,
@@ -120,26 +120,63 @@ const numbers = [
   12,
   69,
   10,
-  75,
-  57,
+  1001,
+  37,
 ]
 
-numbers.sort()
-numbers.reverse()
-const arraySum = numbers.reduce(
-  (accumulator, currentValue) => accumulator + currentValue,
-  0
-)
-console.log(`Largest Number: ${numbers[numbers.length - 1]}`)
-console.log(`Smallest Number: ${numbers[0]}`)
-console.log(`Sum: ${arraySum}`)
-console.log(`Average: ${arraySum / numbers.length - 1}`)
+// Smallest Number
+let smallestNumber = numbers[0]
 
-const sumOfOdd = numbers
-  .filter((number) => number % 2 === 1)
-  .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+for (let number = 0; number < numbers.length; number++) {
+  if (smallestNumber > numbers[number]) {
+    smallestNumber = numbers[number]
+  }
+}
 
-const countOfEven = numbers.filter((number) => number % 2 === 0).length
+console.log(smallestNumber)
 
-console.log(`Sum of odds: ${sumOfOdd}`)
-console.log(`Amount of evens: ${countOfEven}`)
+// Biggest Number
+let biggestNumber = numbers[0]
+
+for (let number = 0; number < numbers.length; number++) {
+  if (biggestNumber < numbers[number]) {
+    biggestNumber = numbers[number]
+  }
+}
+
+console.log(biggestNumber)
+
+// Sum of the numbers in array
+let numbersSum = 0
+
+for (let number = 0; number < numbers.length; number++) {
+  numbersSum = numbersSum + numbers[number]
+}
+
+console.log(numbersSum)
+
+// Average of the numbers in array
+const numbersAverage = numbersSum / numbers.length
+console.log(numbersAverage)
+
+// Sum of all odd numbers in array
+let sumOfOdd = 0
+
+for (let number = 0; number < numbers.length; number++) {
+  if (numbers[number] % 2 === 1) {
+    sumOfOdd = sumOfOdd + numbers[number]
+  }
+}
+
+console.log(sumOfOdd)
+
+// Number of even numbers in the array
+const evens = []
+
+for (let number = 0; number < numbers.length; number++) {
+  if (numbers[number] % 2 === 0) {
+    evens.push(numbers[number])
+  }
+}
+
+console.log(evens.length)
